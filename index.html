@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //console.log("Enter your choice:");
+
+
+        console.log("here---------");
+        function getComputerChoice() {
+            let randomNumber = Math.floor(Math.random() * 3);
+            switch (randomNumber) {
+                case 0: {
+                    return "ROCK";
+                    break;
+                }
+                case 1: {
+                    return "PAPER";
+                    break;
+                }
+                case 2: {
+                    return "SCISSOR";
+                    break;
+                }
+            }
+        }
+        console.log("here---------");
+        function getHumanChoice() {
+            console.log("inside get humanchoice");
+            let choice = prompt("Enter your choice:").toUpperCase();
+            return choice;
+        }
+        console.log("here---------");
+
+
+let humanScore = 0;
+            let computerScore = 0;
+
+        function playGame() {
+            
+
+            function playRound(humanChoice, computerChoice) {
+                console.log("humanChoice: " + humanChoice);
+
+                console.log("computerChoice: " + computerChoice);
+
+                if (humanChoice === computerChoice) {
+                    alert("Draw");
+
+
+
+                }
+                if (humanChoice === "ROCK" && computerChoice === "PAPER") {
+                    computerScore++;
+                    alert("Computer wins , choice of computer:" + computerChoice + "Score of Computer:" + computerScore + "Score of human :" + humanScore);
+                    
+                }
+
+                if (humanChoice === "ROCK" && computerChoice === "SCISSOR") {
+                    humanScore++;
+                    alert("Human wins , choice of computer:" + computerChoice+ "Score of Computer:" + computerScore + "Score of human :" + humanScore);
+                    
+                }
+
+                if (humanChoice === "PAPER" && computerChoice === "ROCK") {
+                    humanScore++;
+                    alert("HUman wins , choice of computer:" + computerChoice+ "Score of Computer:" + computerScore + "Score of human :" + humanScore);
+                    
+                }
+
+
+                if (humanChoice === "PAPER" && computerChoice === "SCISSOR") {
+                    computerScore++;
+                    alert("Computer wins , choice of computer:" + computerChoice+ "Score of Computer:" + computerScore + "Score of human :" + humanScore);
+                    
+                }
+
+
+                if (humanChoice === "SCISSOR" && computerChoice === "ROCK") {
+                    computerScore++;
+                    alert("Computer wins , choice of computer:" + computerChoice+ "Score of Computer:" + computerScore + "Score of human :" + humanScore);
+                }
+
+                if (humanChoice === "SCISSOR" && computerChoice === "PAPER") {
+                    humanScore++;
+                    alert("HUman wins , choice of computer:" + computerChoice+ "Score of Computer:" + computerScore + "Score of human :" + humanScore);
+                    
+                }
+            }
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+          
+
+            playRound(humanSelection, computerSelection);
+
+        }
+
+        let count = 5;
+        while(count > 0){
+            playGame();
+            
+            count--;
+        }
+        if(humanScore > computerScore){
+            alert("HUMAN HAS A HIGHSCORE");
+        }else if(humanScore === computerScore){
+            alert("Both are equal");
+        
+        }else{
+            alert("COMPUTER HAS A HIGHSCORE");
+        }
+    </script>
+</body>
+
+</html>
